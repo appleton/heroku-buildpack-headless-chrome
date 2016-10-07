@@ -5,7 +5,7 @@ set -e
 
 VERSION="55.0.2882.0"
 
-BULID_DIR=$1
+BUILD_DIR=$1
 CACHE_DIR=$2
 ARCHIVE_NAME=headless-chrome-${VERSION}-linux-x86_64
 FILE_NAME=${ARCHIVE_NAME}.tar.gz
