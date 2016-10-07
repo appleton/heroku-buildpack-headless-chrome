@@ -10,27 +10,17 @@ CACHE_DIR=$2
 ARCHIVE_NAME=headless-chrome-${VERSION}-linux-x86_64
 FILE_NAME=${ARCHIVE_NAME}.tar.gz
 ARCHIVE_URL=https://github.com/joshwlewis/heroku-buildpack-headless-chrome/releases/download/v${VERSION}/${FILE_NAME}
-echo $BUILD_DIR
-echo $CACHE_DIR
-echo $ARCHIVE_NAME
-echo $FILE_NAME
-echo $ARCHIVE_URL
 
 mkdir -p $CACHE_DIR
-# if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
+if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   echo "-----> Fetching headless Chrome ${VERSION}"
   curl $ARCHIVE_URL -L -s -o $CACHE_DIR/$FILE_NAME
-# fi
+fi
 
 echo "-----> Extracting headless Chrome ${VERSION} binaries"
 mkdir -p $CACHE_DIR/$ARCHIVE_NAME
 mkdir -p $BUILD_DIR/.heroku
-echo $CACHE_DIR
-ls -al $CACHE_DIR
-ls -al $CACHE_DIR/$FILE_NAME
 tar -xzf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
-ls -al $CACHE_DIR
-ls -al $CACHE_DIR/$ARCHIVE_NAME
 mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/.heroku/headless-chrome
 
 echo "-----> Exporting headless Chrome PATH"
