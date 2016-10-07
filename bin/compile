@@ -14,7 +14,7 @@ ARCHIVE_URL=https://github.com/joshwlewis/heroku-buildpack-headless-chrome/relea
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   echo "-----> Fetching headless Chrome ${VERSION}"
-  curl $HEADLESS_CHROME_URL -L -s -o $CACHE_DIR/$FILE_NAME
+  curl $ARCHIVE_URL -L -s -o $CACHE_DIR/$FILE_NAME
 fi
 
 echo "-----> Extracting headless Chrome ${VERSION} binaries to ${BUILD_DIR}/.heroku/headless-chrome"
