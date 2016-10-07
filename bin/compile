@@ -9,7 +9,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ARCHIVE_NAME=headless-chrome-${VERSION}-linux-x86_64
 FILE_NAME=${ARCHIVE_NAME}.tar.gz
-ARCHIVE_URL=https://github.com/joshwlewis/heroku-buildpack-headless-chrome/releases/v${VERSION}/${FILE_NAME}
+ARCHIVE_URL=https://github.com/joshwlewis/heroku-buildpack-headless-chrome/releases/download/v${VERSION}/${FILE_NAME}
 echo $BUILD_DIR
 echo $CACHE_DIR
 echo $ARCHIVE_NAME
